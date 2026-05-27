@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sathish Kumar A S | AI Testing Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --card-bg: #141414;
+            --accent-color: #cfff00; /* Electric Lime */
+            --text-main: #efefef;
+            --text-dim: #a0a0a0;
+            --border-color: #262626;
+            --glow: 0 0 20px rgba(207, 255, 0, 0.15);
+            --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Outfit', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Grain Overlay for texture */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: url('https://grainy-gradients.vercel.app/noise.svg');
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* Grid Background */
+        .grid-bg {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image:
+                linear-gradient(var(--border-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
+            background-size: 40px 40px;
+            mask-image: radial-gradient(circle at center, black, transparent 80%);
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Profile Sidebar */
+        .profile-core {
+            position: sticky;
+            top: 40px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--glow);
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .profile-core:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 4px solid var(--border-color);
+            margin-bottom: 24px;
+            object-fit: cover;
+            transition: var(--transition);
+            filter: grayscale(20%);
+        }
+
+        .profile-core:hover .profile-img {
+            border-color: var(--accent-color);
+            filter: grayscale(0%);
+            transform: scale(1.05);
+        }
+
+        .name {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 8px;
+            letter-spacing: -1px;
+        }
+
+        .role-badge {
+            display: inline-block;
+            background: var(--accent-color);
+            color: #000;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 100px;
+            margin-bottom: 24px;
+        }
+
+        .bio {
+            color: var(--text-dim);
+            font-size: 1rem;
+            margin-bottom: 32px;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .social-link {
+            text-decoration: none;
+            color: var(--text-main);
+            background: var(--border-color);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            padding: 12px;
+            border-radius: 12px;
+            transition: var(--transition);
+            border: 1px solid transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .social-link:hover {
+            background: transparent;
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content Area */
+        .experience-feed {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::after {
+            content: "";
+            height: 1px;
+            flex-grow: 1;
+            background: var(--border-color);
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 30px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            border-color: var(--accent-color);
+            background: #1a1a1a;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .card-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .card-body {
+            color: var(--text-dim);
+            margin-bottom: 20px;
+        }
+
+        /* Skill Tags */
+        .skill-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: #262626;
+            color: var(--text-main);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 6px;
+            transition: var(--transition);
+            cursor: default;
+        }
+
+        .skill-tag:hover {
+            color: var(--accent-color);
+            background: #333;
+        }
+
+        /* Animations */
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .reveal {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+
+        /* Custom Cursor */
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-color);
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 10000;
+            transition: transform 0.1s ease;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="grid-bg"></div>
+    <div class="cursor-dot" id="cursor"></div>
+
+    <div class="container">
+        <!-- Profile Sidebar -->
+        <aside class="profile-core">
+            <img src="https://github.com/SathishQASelenium.png" alt="Sathish Kumar A S" class="profile-img">
+            <h1 class="name">Sathish Kumar A S</h1>
+            <div class="role-badge">AI TESTING ENGINEER</div>
+            <p class="bio">Bridging the gap between traditional Quality Assurance and the future of AI-driven automation. Architecting scalable frameworks for modern web applications.</p>
+
+            <div class="social-grid">
+                <a href="https://github.com/SathishQASelenium" target="_blank" class="social-link">
+                    <span>GitHub</span>
+                </a>
+                <a href="https://linkedin.com/in/SathishQASelenium" target="_blank" class="social-link">
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://youtube.com/@SathishQASelenium" target="_blank" class="social-link">
+                    <span>YouTube</span>
+                </a>
+                <a href="https://medium.com/@SathishQASelenium" target="_blank" class="social-link">
+                    <span>Medium</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Experience Feed -->
+        <main class="experience-feed">
+
+            <div class="section-title">Core Expertise</div>
+            <div class="card reveal delay-1">
+                <div class="card-header">
+                    <h3 class="card-title">Automation Framework Architecture</h3>
+                    <span class="card-tag">Primary</span>
+                </div>
+                <p class="card-body">
+                    Designing enterprise-grade Selenium frameworks utilizing Java and TestNG. Specializing in hybrid architectures that combine the Page Object Model (POM) with Page Factory for maximum scalability.
+                </p>
+                <div class="skill-container">
+                    <span class="skill-tag">Selenium 4</span>
+                    <span class="skill-tag">Java 17</span>
+                    <span class="skill-tag">TestNG</span>
+                    <span class="skill-tag">Maven</span>
+                    <span class="skill-tag">AssertJ</span>
+                </div>
+            </div>
+
+            <div class="card reveal delay-2">
+                <div class="card-header">
+                    <h3 class="card-title">AI In Testing</h3>
+                    <span class="card-tag">Innovative</span>
+                </div>
+                <p class="card-body">
+                    Implementing Artificial Intelligence to optimize test case generation and self-healing locators, reducing maintenance overhead and increasing test coverage.
+                </p>
+                <div class="skill-container">
+                    <span class="skill-tag">LLM Integration</span>
+                    <span class="skill-tag">Self-Healing</span>
+                    <span class="skill-tag">Predictive Analysis</span>
+                </div>
+            </div>
+
+            <div class="section-title">Knowledge Sharing</div>
+            <div class="card reveal delay-3">
+                <div class="card-header">
+                    <h3 class="card-title">YouTube Educational Series</h3>
+                    <span class="card-tag">Content</span>
+                </div>
+                <p class="card-body">
+                    Simplifying complex automation concepts for a global community of QA engineers through deep-dive tutorials and framework breakdowns.
+                </p>
+                <div class="skill-container">
+                    <span class="skill-tag">Technical Teaching</span>
+                    <span class="skill-tag">Video Production</span>
+                    <span class="skill-tag">Community Growth</span>
+                </div>
+            </div>
+
+            <div class="card reveal delay-3" style="animation-delay: 0.8s;">
+                <div class="card-header">
+                    <h3 class="card-title">Technical Writing on Medium</h3>
+                    <span class="card-tag">Insights</span>
+                </div>
+                <p class="card-body">
+                    Documenting the evolution of QA from manual testing to AI-orchestrated validation. Sharing architectural patterns and industry best practices.
+                </p>
+                <div class="skill-container">
+                    <span class="skill-tag">Technical Blogging</span>
+                    <span class="skill-tag">Architecture Design</span>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        // Custom Cursor Logic
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        // Reveal elements on scroll using Intersection Observer
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
