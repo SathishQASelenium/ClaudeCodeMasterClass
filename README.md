@@ -16,7 +16,7 @@ ClaudeCodeMasterClass/
 ├── ATB14xSeleniumAdvanceFrameworks/     # Selenium Java framework (TestNG, Maven, Allure)
 ├── playwright_8_layer/                  # Playwright TypeScript 8-layer framework
 ├── test-plan-create-skill/              # AI Skill: /test-plan command
-├── bug-report-create-skill/             # AI Skill: /create-bug command (referenced, not present)
+├── bug-report-create-skill/             # AI Skill: /create-bug command
 │
 ├── config/                              # (empty) Configuration files placeholder
 ├── core/                                # (empty) Core logic placeholder
@@ -101,7 +101,26 @@ test-plan-create-skill/
 
 **Command:** `/test-plan` — turns a Jira ticket (file, paste, or live MCP fetch) into a formal test plan as `.md` or `.docx`.
 
-### 4. `output/testplan/` — Generated Artifacts
+### 4. `bug-report-create-skill/` — Bug Report Creator Skill
+
+```
+bug-report-create-skill/
+├── SKILL.md                       # Skill definition + instructions
+└── assets/
+    └── bug-report-template.md     # 5-section bug template (modeled on VWO-24)
+```
+
+**Command:** `/create-bug` — takes a screenshot + optional description, analyzes the error, fills a 5-section bug report template (Summary, Bug Details, Steps to Reproduce, Expected Result, Actual Result, Attachments), and creates a Jira issue via the Atlassian MCP.
+
+Key workflow:
+1. Gathers screenshot, description, project key (default `VWO`), and priority (default `Medium`)
+2. Analyzes the screenshot to extract page URL, triggering action, and verbatim error text
+3. Fills `assets/bug-report-template.md` using the VWO-24 format
+4. Confirms with the user before creating the first ticket in a session
+5. Calls `createJiraIssue` via the Atlassian MCP
+6. Reports the new ticket key + URL with a reminder to manually attach the screenshot (MCP limitation: no file upload)
+
+### 5. `output/testplan/` — Generated Artifacts
 
 ```
 output/testplan/
@@ -110,7 +129,7 @@ output/testplan/
 └── mcp/          # VWO-105 plan fetched live via Atlassian MCP
 ```
 
-### 5. Empty Scaffold Directories
+### 6. Empty Scaffold Directories
 
 These directories are placeholders for a flattened 8-layer architecture outside `playwright_8_layer/`:
 
@@ -125,7 +144,7 @@ These directories are placeholders for a flattened 8-layer architecture outside 
 | `utils/` | Shared utilities |
 | `workflows/` | Business workflow compositions |
 
-### 6. Root Files
+### 7. Root Files
 
 | File | Description |
 |------|-------------|
@@ -136,7 +155,7 @@ These directories are placeholders for a flattened 8-layer architecture outside 
 | `vwo-25.md` | Sample PRD for VWO login dashboard (input for `/test-plan`) |
 | `restful-booker-api-test-plan.md` | Sample 14-section test plan for Restful Booker API |
 
-### 7. `.claude/`
+### 8. `.claude/`
 
 ```
 .claude/
@@ -196,7 +215,7 @@ Tickets created during this masterclass: **VWO-105** (TTACart PRD), **VWO-106** 
 - **Java sandbox:** `javac myTest.java && java myTest`
 - **Selenium framework:** `cd ATB14xSeleniumAdvanceFrameworks && mvn test -Dsurefire.suiteXmlFiles=testng.xml`
 - **Playwright framework:** `cd playwright_8_layer && npm install && npx playwright test`
-- **Skills:** Copy `test-plan-create-skill/` to `~/.claude/skills/`, command files to `~/.claude/commands/`, or upload to Claude in the cloud.
+- **Skills:** Copy `test-plan-create-skill/` and `bug-report-create-skill/` to `~/.claude/skills/`, command files to `~/.claude/commands/`, or upload to Claude in the cloud.
 
 ---
 
