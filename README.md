@@ -17,12 +17,15 @@ ClaudeCodeMasterClass/
 ├── playwright_8_layer/                  # Playwright TypeScript 8-layer framework
 ├── test-plan-create-skill/              # AI Skill: /test-plan command
 ├── bug-report-create-skill/             # AI Skill: /create-bug command
+├── explore-pom-skill/                   # AI Skill: /explore command
 │
 ├── config/                              # (empty) Configuration files placeholder
 ├── core/                                # (empty) Core logic placeholder
 ├── fixtures/                            # (empty) Test fixtures placeholder
 ├── html-exporter/                       # (empty) HTML exporter placeholder
-├── output/testplan/                     # Generated test plans (.md + .docx)
+├── output/                              # Generated artifacts
+│   ├── testplan/                         # Test plans (.md + .docx)
+│   └── pom/                              # Generated Page Objects
 ├── pages/                               # (empty) Page objects placeholder
 ├── tests/                               # (empty) Test specs placeholder
 ├── utils/                               # (empty) Utilities placeholder
@@ -120,16 +123,29 @@ Key workflow:
 5. Calls `createJiraIssue` via the Atlassian MCP
 6. Reports the new ticket key + URL with a reminder to manually attach the screenshot (MCP limitation: no file upload)
 
-### 5. `output/testplan/` — Generated Artifacts
+### 5. `explore-pom-skill/` — App Explorer & POM Generator Skill
 
 ```
-output/testplan/
-├── batch/        # 4 parallel-generated plans (VWO-25, VWO-26, VWO-100, VWO-101)
-├── docx/         # Single VWO-25 plan (.md + .docx)
-└── mcp/          # VWO-105 plan fetched live via Atlassian MCP
+explore-pom-skill/
+└── SKILL.md                   # Skill definition + instructions
 ```
 
-### 6. Empty Scaffold Directories
+**Command:** `/explore` — navigates to a URL, discovers primary interactive UI elements (inputs, buttons, labels), and generates a production-ready Playwright TypeScript Page Object Model (POM) extending a `BasePage`.
+
+Key features:
+- **DOM Inspection**: Automatic identification of key UI components and logical page structure.
+- **Locator Strategy**: Prioritizes semantic locators (`getByRole`, `getByLabel`, `getByTestId`) over CSS selectors.
+- **POM Generation**: Produces a full TypeScript class with descriptive locator properties and business-action methods.
+
+### 6. `output/` — Generated Artifacts
+
+```
+output/
+├── testplan/        # Generated test plans (batch, docx, and MCP-fetched)
+└── pom/             # Generated Page Object Models from /explore
+```
+
+### 7. Empty Scaffold Directories
 
 These directories are placeholders for a flattened 8-layer architecture outside `playwright_8_layer/`:
 
@@ -144,7 +160,7 @@ These directories are placeholders for a flattened 8-layer architecture outside 
 | `utils/` | Shared utilities |
 | `workflows/` | Business workflow compositions |
 
-### 7. Root Files
+### 8. Root Files
 
 | File | Description |
 |------|-------------|
@@ -155,7 +171,7 @@ These directories are placeholders for a flattened 8-layer architecture outside 
 | `vwo-25.md` | Sample PRD for VWO login dashboard (input for `/test-plan`) |
 | `restful-booker-api-test-plan.md` | Sample 14-section test plan for Restful Booker API |
 
-### 8. `.claude/`
+### 9. `.claude/`
 
 ```
 .claude/
@@ -165,26 +181,28 @@ These directories are placeholders for a flattened 8-layer architecture outside 
 
 ---
 
-## The Two AI Skills
+## AI Skills
 
 ### `/test-plan` — Test Plan Generator
-
 ```bash
 /test-plan ./ticket.md                  # From a markdown/text file
 /test-plan VWO-105                       # Fetch live via Atlassian MCP
 /test-plan VWO-105 create a docx in ./output/testplan/mcp
 ```
-
-Fills a 14-section template (Objective, Scope, Inclusions, Test Environments, Defect Reporting, Test Strategy, Schedule, Deliverables, Entry/Exit Criteria, Tools, Risks & Mitigations, Approvals). Detects UI vs API tickets and shapes sections accordingly.
+Fills a 14-section template (Objective, Scope, Inclusions, Test Environments, Defect Reporting, Test Strategy, Schedule, Deliverables, Entry/Exit Criteria, Tools, Risks & Mitigations, Approvals).
 
 ### `/create-bug` — Jira Bug Filer
-
 ```bash
 /create-bug                              # Then paste screenshot + notes
 /create-bug REST                         # File on a different project (default VWO)
 ```
+Reads screenshot (extracts page/URL + error text), fills 5-section bug template, creates via Atlassian MCP `createJiraIssue`.
 
-Reads screenshot (extracts page/URL + error text), fills 5-section bug template (Bug Details → Steps → Expected → Actual → Attachments), creates via Atlassian MCP `createJiraIssue`.
+### `/explore` — POM Generator
+```bash
+/explore https://example.com/login      # Explore page and generate TypeScript POM
+```
+Analyzes the provided URL and produces a structured Playwright Page Object Model with robust locators and action methods.
 
 ---
 
@@ -206,7 +224,8 @@ Tickets created during this masterclass: **VWO-105** (TTACart PRD), **VWO-106** 
 6. **`/test-plan VWO-25, VWO-101, VWO-26, VWO-100 — spawn multiple agents`** → 4 parallel plans into `output/testplan/batch/`.
 7. **"Create a skill for bug reporting"** → Built `bug-report-create-skill/` with `/create-bug` command.
 8. **`/create-bug` (VWO login screenshot)** → Filed **VWO-106** and **VWO-107**.
-9. **"Commit the code and push to the GitHub repo, and add a README"** → This commit + this README.
+9. **"Create a skill for exploring apps and generating POMs"** → Built `explore-pom-skill/` with `/explore` command.
+10. **"Commit the code and push to the GitHub repo, and add a README"** → This commit + this README.
 
 ---
 
@@ -215,7 +234,7 @@ Tickets created during this masterclass: **VWO-105** (TTACart PRD), **VWO-106** 
 - **Java sandbox:** `javac myTest.java && java myTest`
 - **Selenium framework:** `cd ATB14xSeleniumAdvanceFrameworks && mvn test -Dsurefire.suiteXmlFiles=testng.xml`
 - **Playwright framework:** `cd playwright_8_layer && npm install && npx playwright test`
-- **Skills:** Copy `test-plan-create-skill/` and `bug-report-create-skill/` to `~/.claude/skills/`, command files to `~/.claude/commands/`, or upload to Claude in the cloud.
+- **Skills:** Copy `test-plan-create-skill/`, `bug-report-create-skill/`, and `explore-pom-skill/` to `~/.claude/skills/`, command files to `~/.claude/commands/`, or upload to Claude in the cloud.
 
 ---
 
