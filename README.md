@@ -2,7 +2,7 @@
 
 A hands-on workspace from **The Testing Academy** showing how to drive Claude Code as a QA automation copilot — building reusable **Skills** and **slash commands**, wiring up the **Atlassian (Jira) MCP**, generating formal **test plans** from Jira tickets, and filing **bug reports** straight into Jira.
 
-This repo also contains two complete test automation frameworks (Selenium Java + Playwright TypeScript) demonstrating advanced design patterns.
+This repo also contains three complete test automation frameworks (Selenium Java + 2 Playwright TypeScript variants) demonstrating advanced design patterns.
 
 This README doubles as a **session log**: every prompt used to build the repo is documented below so the workflow is reproducible.
 
@@ -15,7 +15,8 @@ ClaudeCodeMasterClass/
 │
 ├── ATB14xSeleniumAdvanceFrameworks/     # Selenium Java framework (TestNG, Maven, Allure)
 ├── playwright_8_layer/                  # Playwright TypeScript 8-layer framework
-├── test-plan-create-skill/              # AI Skill: /test-plan command
+├── AdvancePlaywrightFramework/             # Enterprise Playwright 8-layer framework
+├── test-plan-create-skill/                # AI Skill: /test-plan command
 ├── bug-report-create-skill/             # AI Skill: /create-bug command
 ├── explore-pom-skill/                   # AI Skill: /explore command
 │
@@ -37,7 +38,7 @@ ClaudeCodeMasterClass/
 ├── sathish_portfolio.html               # Personal portfolio page
 ├── claude_code_for_qa.md                # Strategic article on AI for QA
 ├── vwo-25.md                            # Sample PRD input for test-plan skill
-├── restful-booker-api-test-plan.md      # Sample test plan output
+├── restful-booker-api-test-plan.md      # Sample 14-section test plan for Restful Booker API
 ├── 2026-05-27-*-command-message.txt     # Auto-generated session log
 │
 └── .claude/                             # Claude Code config + worktrees
@@ -89,7 +90,30 @@ A strict **8-layer architecture** E2E testing framework:
 
 Additional files: `html-exporter/SKILL.md` (Claude Code skill), `playwright-e2e.SKILL.md` (POM best practices), generated HTML outputs.
 
-### 3. `test-plan-create-skill/` — Test Plan Generator Skill
+### 3. `AdvancePlaywrightFramework/` — Enterprise Playwright Framework
+
+**Stack:** TypeScript, Playwright, Dotenv
+
+An enterprise-grade implementation of a strict **8-layer architecture** emphasizing the separation of Locators (Pages) and Business Logic (Modules).
+
+| Layer | Responsibility | Key Pattern |
+| :--- | :--- | :--- |
+| 1 | **Configuration** | Env & Tooling config | `dotenv` + `playwright.config.ts` |
+| 2 | **Pages** | Locators & basic UI actions | Arrow functions for fresh locators |
+| 3 | **Modules** | Business logic orchestration | Page Object consumption |
+| 4 | **Utilities** | Shared helpers | Static utility classes |
+| 5 | **API Layer** | Backend testing/setup | `APIRequestContext` |
+| 6 | **Fixtures** | Dependency Injection | Custom `test.extend` |
+| 7 | **Reporting** | Test results visibility | HTML/JSON Reports + Trace files |
+| 8 | **CI/CD** | Multi-browser execution | Parallel workers & Artifacts |
+
+Key features:
+- **Fresh Locators**: Pages use arrow functions to avoid stale element references.
+- **Zero Logic in Pages**: Business flows are entirely moved to Modules.
+- **Fixture-based DI**: Tests inject Modules directly via custom fixtures, removing boilerplate instantiation.
+- **Reporting**: Integrated `test.step()` for highly readable HTML reports.
+
+### 4. `test-plan-create-skill/` — Test Plan Generator Skill
 
 ```
 test-plan-create-skill/
@@ -104,7 +128,7 @@ test-plan-create-skill/
 
 **Command:** `/test-plan` — turns a Jira ticket (file, paste, or live MCP fetch) into a formal test plan as `.md` or `.docx`.
 
-### 4. `bug-report-create-skill/` — Bug Report Creator Skill
+### 5. `bug-report-create-skill/` — Bug Report Creator Skill
 
 ```
 bug-report-create-skill/
@@ -123,7 +147,7 @@ Key workflow:
 5. Calls `createJiraIssue` via the Atlassian MCP
 6. Reports the new ticket key + URL with a reminder to manually attach the screenshot (MCP limitation: no file upload)
 
-### 5. `explore-pom-skill/` — App Explorer & POM Generator Skill
+### 6. `explore-pom-skill/` — App Explorer & POM Generator Skill
 
 ```
 explore-pom-skill/
@@ -137,7 +161,7 @@ Key features:
 - **Locator Strategy**: Prioritizes semantic locators (`getByRole`, `getByLabel`, `getByTestId`) over CSS selectors.
 - **POM Generation**: Produces a full TypeScript class with descriptive locator properties and business-action methods.
 
-### 6. `output/` — Generated Artifacts
+### 7. `output/` — Generated Artifacts
 
 ```
 output/
@@ -145,7 +169,7 @@ output/
 └── pom/             # Generated Page Object Models from /explore
 ```
 
-### 7. Empty Scaffold Directories
+### 8. Empty Scaffold Directories
 
 These directories are placeholders for a flattened 8-layer architecture outside `playwright_8_layer/`:
 
@@ -160,7 +184,7 @@ These directories are placeholders for a flattened 8-layer architecture outside 
 | `utils/` | Shared utilities |
 | `workflows/` | Business workflow compositions |
 
-### 8. Root Files
+### 9. Root Files
 
 | File | Description |
 |------|-------------|
@@ -171,7 +195,7 @@ These directories are placeholders for a flattened 8-layer architecture outside 
 | `vwo-25.md` | Sample PRD for VWO login dashboard (input for `/test-plan`) |
 | `restful-booker-api-test-plan.md` | Sample 14-section test plan for Restful Booker API |
 
-### 9. `.claude/`
+### 10. `.claude/`
 
 ```
 .claude/
@@ -184,24 +208,24 @@ These directories are placeholders for a flattened 8-layer architecture outside 
 ## AI Skills
 
 ### `/test-plan` — Test Plan Generator
-```bash
+\`\`\`bash
 /test-plan ./ticket.md                  # From a markdown/text file
 /test-plan VWO-105                       # Fetch live via Atlassian MCP
 /test-plan VWO-105 create a docx in ./output/testplan/mcp
-```
+\`\`\`
 Fills a 14-section template (Objective, Scope, Inclusions, Test Environments, Defect Reporting, Test Strategy, Schedule, Deliverables, Entry/Exit Criteria, Tools, Risks & Mitigations, Approvals).
 
-### `/create-bug` — Jira Bug Filer
-```bash
+### `/create-bug` — Jira Bug Report Filer
+\`\`\`bash
 /create-bug                              # Then paste screenshot + notes
 /create-bug REST                         # File on a different project (default VWO)
-```
+\`\`\`
 Reads screenshot (extracts page/URL + error text), fills 5-section bug template, creates via Atlassian MCP `createJiraIssue`.
 
 ### `/explore` — POM Generator
-```bash
+\`\`\`bash
 /explore https://example.com/login      # Explore page and generate TypeScript POM
-```
+\`\`\`
 Analyzes the provided URL and produces a structured Playwright Page Object Model with robust locators and action methods.
 
 ---
@@ -226,6 +250,7 @@ Tickets created during this masterclass: **VWO-105** (TTACart PRD), **VWO-106** 
 8. **`/create-bug` (VWO login screenshot)** → Filed **VWO-106** and **VWO-107**.
 9. **"Create a skill for exploring apps and generating POMs"** → Built `explore-pom-skill/` with `/explore` command.
 10. **"Commit the code and push to the GitHub repo, and add a README"** → This commit + this README.
+11. **"Create the AdvancePlaywrightFramework in this project"** → Built Enterprise Playwright 8-layer framework with Modules, Fixtures, and strict POM patterns.
 
 ---
 
@@ -233,7 +258,8 @@ Tickets created during this masterclass: **VWO-105** (TTACart PRD), **VWO-106** 
 
 - **Java sandbox:** `javac myTest.java && java myTest`
 - **Selenium framework:** `cd ATB14xSeleniumAdvanceFrameworks && mvn test -Dsurefire.suiteXmlFiles=testng.xml`
-- **Playwright framework:** `cd playwright_8_layer && npm install && npx playwright test`
+- **Playwright framework (v1):** `cd playwright_8_layer && npm install && npx playwright test`
+- **Advance Playwright Framework (v2):** `cd AdvancePlaywrightFramework && npm install && npm test`
 - **Skills:** Copy `test-plan-create-skill/`, `bug-report-create-skill/`, and `explore-pom-skill/` to `~/.claude/skills/`, command files to `~/.claude/commands/`, or upload to Claude in the cloud.
 
 ---

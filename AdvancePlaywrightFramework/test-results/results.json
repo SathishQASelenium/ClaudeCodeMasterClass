@@ -1,0 +1,844 @@
+{
+  "config": {
+    "configFile": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\playwright.config.ts",
+    "rootDir": "C:/Personal_Development/TheTestingAcademy/ClaudeCodeMasterClass/AdvancePlaywrightFramework/src/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 4
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Personal_Development/TheTestingAcademy/ClaudeCodeMasterClass/AdvancePlaywrightFramework/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Personal_Development/TheTestingAcademy/ClaudeCodeMasterClass/AdvancePlaywrightFramework/src/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "C:/Personal_Development/TheTestingAcademy/ClaudeCodeMasterClass/AdvancePlaywrightFramework/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "C:/Personal_Development/TheTestingAcademy/ClaudeCodeMasterClass/AdvancePlaywrightFramework/src/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "C:/Personal_Development/TheTestingAcademy/ClaudeCodeMasterClass/AdvancePlaywrightFramework/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "C:/Personal_Development/TheTestingAcademy/ClaudeCodeMasterClass/AdvancePlaywrightFramework/src/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "C:/Personal_Development/TheTestingAcademy/ClaudeCodeMasterClass/AdvancePlaywrightFramework/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "mobile-chrome",
+        "name": "mobile-chrome",
+        "testDir": "C:/Personal_Development/TheTestingAcademy/ClaudeCodeMasterClass/AdvancePlaywrightFramework/src/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "html",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/results.json"
+        }
+      ],
+      [
+        "list",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 4,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "login.spec.ts",
+      "file": "login.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "@P0 Login",
+          "file": "login.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should login successfully with valid credentials",
+              "ok": false,
+              "tags": [
+                "P0"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 73366,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\pages\\LoginPage.ts",
+                            "column": 32,
+                            "line": 14
+                          },
+                          "message": "Error: locator.fill: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#user-name')\u001b[22m\n\n\n   at ..\\pages\\LoginPage.ts:14\n\n  12 |   // Basic UI actions\n  13 |   async fillUsername(username: string) {\n> 14 |     await this.usernameInput().fill(username);\n     |                                ^\n  15 |   }\n  16 |\n  17 |   async fillPassword(password: string) {\n    at LoginPage.fillUsername (C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\pages\\LoginPage.ts:14:32)\n    at LoginModule.doLogin (C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\modules\\LoginModule.ts:16:26)\n    at C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\tests\\login.spec.ts:12:25\n    at C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\tests\\login.spec.ts:11:5"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "[INFO] 2026-06-04T00:52:01.979Z - Attempting login for user: standard_user\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Perform Login",
+                          "duration": 68964,
+                          "error": {
+                            "message": "Error: locator.fill: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#user-name')\u001b[22m\n",
+                            "stack": "Error: locator.fill: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#user-name')\u001b[22m\n\n    at LoginPage.fillUsername (C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\pages\\LoginPage.ts:14:32)\n    at LoginModule.doLogin (C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\modules\\LoginModule.ts:16:26)\n    at C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\tests\\login.spec.ts:12:25\n    at C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\tests\\login.spec.ts:11:5",
+                            "location": {
+                              "file": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\pages\\LoginPage.ts",
+                              "column": 32,
+                              "line": 14
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\pages\\LoginPage.ts:14\n\n\u001b[0m \u001b[90m 12 |\u001b[39m   \u001b[90m// Basic UI actions\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[36masync\u001b[39m fillUsername(username\u001b[33m:\u001b[39m string) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 14 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39musernameInput()\u001b[33m.\u001b[39mfill(username)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 15 |\u001b[39m   }\n \u001b[90m 16 |\u001b[39m\n \u001b[90m 17 |\u001b[39m   \u001b[36masync\u001b[39m fillPassword(password\u001b[33m:\u001b[39m string) {\u001b[0m"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-06-04T00:51:55.773Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\test-results\\login--P0-Login-should-log-0d116-ully-with-valid-credentials-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\test-results\\login--P0-Login-should-log-0d116-ully-with-valid-credentials-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\test-results\\login--P0-Login-should-log-0d116-ully-with-valid-credentials-chromium\\error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "41d3fd2474a19feb00a1-b4bb8c6331e0897d51b8",
+              "file": "login.spec.ts",
+              "line": 10,
+              "column": 7
+            },
+            {
+              "title": "should show error for invalid credentials",
+              "ok": false,
+              "tags": [
+                "P0"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "timedOut",
+                      "duration": 72965,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\pages\\LoginPage.ts",
+                            "column": 32,
+                            "line": 14
+                          },
+                          "message": "Error: locator.fill: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#user-name')\u001b[22m\n\n\n   at ..\\pages\\LoginPage.ts:14\n\n  12 |   // Basic UI actions\n  13 |   async fillUsername(username: string) {\n> 14 |     await this.usernameInput().fill(username);\n     |                                ^\n  15 |   }\n  16 |\n  17 |   async fillPassword(password: string) {\n    at LoginPage.fillUsername (C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\pages\\LoginPage.ts:14:32)\n    at LoginModule.doLogin (C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\modules\\LoginModule.ts:16:26)\n    at C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\tests\\login.spec.ts:22:25\n    at C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\tests\\login.spec.ts:21:5"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "[INFO] 2026-06-04T00:52:01.981Z - Attempting login for user: invalid_user\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Attempt login with wrong credentials",
+                          "duration": 68531,
+                          "error": {
+                            "message": "Error: locator.fill: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#user-name')\u001b[22m\n",
+                            "stack": "Error: locator.fill: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#user-name')\u001b[22m\n\n    at LoginPage.fillUsername (C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\pages\\LoginPage.ts:14:32)\n    at LoginModule.doLogin (C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\modules\\LoginModule.ts:16:26)\n    at C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\tests\\login.spec.ts:22:25\n    at C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\tests\\login.spec.ts:21:5",
+                            "location": {
+                              "file": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\pages\\LoginPage.ts",
+                              "column": 32,
+                              "line": 14
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\pages\\LoginPage.ts:14\n\n\u001b[0m \u001b[90m 12 |\u001b[39m   \u001b[90m// Basic UI actions\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[36masync\u001b[39m fillUsername(username\u001b[33m:\u001b[39m string) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 14 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39musernameInput()\u001b[33m.\u001b[39mfill(username)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 15 |\u001b[39m   }\n \u001b[90m 16 |\u001b[39m\n \u001b[90m 17 |\u001b[39m   \u001b[36masync\u001b[39m fillPassword(password\u001b[33m:\u001b[39m string) {\u001b[0m"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-06-04T00:51:55.795Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\test-results\\login--P0-Login-should-show-error-for-invalid-credentials-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\test-results\\login--P0-Login-should-show-error-for-invalid-credentials-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\test-results\\login--P0-Login-should-show-error-for-invalid-credentials-chromium\\error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "41d3fd2474a19feb00a1-d5709f927fc802d5a389",
+              "file": "login.spec.ts",
+              "line": 20,
+              "column": 7
+            },
+            {
+              "title": "should login successfully with valid credentials",
+              "ok": false,
+              "tags": [
+                "P0"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "timedOut",
+                      "duration": 61514,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\pages\\LoginPage.ts",
+                            "column": 32,
+                            "line": 14
+                          },
+                          "message": "Error: locator.fill: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#user-name')\u001b[22m\n\n\n   at ..\\pages\\LoginPage.ts:14\n\n  12 |   // Basic UI actions\n  13 |   async fillUsername(username: string) {\n> 14 |     await this.usernameInput().fill(username);\n     |                                ^\n  15 |   }\n  16 |\n  17 |   async fillPassword(password: string) {\n    at LoginPage.fillUsername (C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\pages\\LoginPage.ts:14:32)\n    at LoginModule.doLogin (C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\modules\\LoginModule.ts:16:26)\n    at C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\tests\\login.spec.ts:12:25\n    at C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\tests\\login.spec.ts:11:5"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "[INFO] 2026-06-04T00:52:04.939Z - Attempting login for user: standard_user\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Perform Login",
+                          "duration": 55845,
+                          "error": {
+                            "message": "Error: locator.fill: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#user-name')\u001b[22m\n",
+                            "stack": "Error: locator.fill: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#user-name')\u001b[22m\n\n    at LoginPage.fillUsername (C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\pages\\LoginPage.ts:14:32)\n    at LoginModule.doLogin (C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\modules\\LoginModule.ts:16:26)\n    at C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\tests\\login.spec.ts:12:25\n    at C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\tests\\login.spec.ts:11:5",
+                            "location": {
+                              "file": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\pages\\LoginPage.ts",
+                              "column": 32,
+                              "line": 14
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\pages\\LoginPage.ts:14\n\n\u001b[0m \u001b[90m 12 |\u001b[39m   \u001b[90m// Basic UI actions\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[36masync\u001b[39m fillUsername(username\u001b[33m:\u001b[39m string) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 14 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39musernameInput()\u001b[33m.\u001b[39mfill(username)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 15 |\u001b[39m   }\n \u001b[90m 16 |\u001b[39m\n \u001b[90m 17 |\u001b[39m   \u001b[36masync\u001b[39m fillPassword(password\u001b[33m:\u001b[39m string) {\u001b[0m"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-06-04T00:51:55.752Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\test-results\\login--P0-Login-should-log-0d116-ully-with-valid-credentials-firefox\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\test-results\\login--P0-Login-should-log-0d116-ully-with-valid-credentials-firefox\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\test-results\\login--P0-Login-should-log-0d116-ully-with-valid-credentials-firefox\\error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "41d3fd2474a19feb00a1-37c27e0b5ba23e1b7185",
+              "file": "login.spec.ts",
+              "line": 10,
+              "column": 7
+            },
+            {
+              "title": "should show error for invalid credentials",
+              "ok": false,
+              "tags": [
+                "P0"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "timedOut",
+                      "duration": 61096,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\pages\\LoginPage.ts",
+                            "column": 32,
+                            "line": 14
+                          },
+                          "message": "Error: locator.fill: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#user-name')\u001b[22m\n\n\n   at ..\\pages\\LoginPage.ts:14\n\n  12 |   // Basic UI actions\n  13 |   async fillUsername(username: string) {\n> 14 |     await this.usernameInput().fill(username);\n     |                                ^\n  15 |   }\n  16 |\n  17 |   async fillPassword(password: string) {\n    at LoginPage.fillUsername (C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\pages\\LoginPage.ts:14:32)\n    at LoginModule.doLogin (C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\modules\\LoginModule.ts:16:26)\n    at C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\tests\\login.spec.ts:22:25\n    at C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\tests\\login.spec.ts:21:5"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "[INFO] 2026-06-04T00:52:03.047Z - Attempting login for user: invalid_user\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Attempt login with wrong credentials",
+                          "duration": 55173,
+                          "error": {
+                            "message": "Error: locator.fill: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#user-name')\u001b[22m\n",
+                            "stack": "Error: locator.fill: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#user-name')\u001b[22m\n\n    at LoginPage.fillUsername (C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\pages\\LoginPage.ts:14:32)\n    at LoginModule.doLogin (C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\modules\\LoginModule.ts:16:26)\n    at C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\tests\\login.spec.ts:22:25\n    at C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\tests\\login.spec.ts:21:5",
+                            "location": {
+                              "file": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\pages\\LoginPage.ts",
+                              "column": 32,
+                              "line": 14
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\pages\\LoginPage.ts:14\n\n\u001b[0m \u001b[90m 12 |\u001b[39m   \u001b[90m// Basic UI actions\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[36masync\u001b[39m fillUsername(username\u001b[33m:\u001b[39m string) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 14 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39musernameInput()\u001b[33m.\u001b[39mfill(username)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 15 |\u001b[39m   }\n \u001b[90m 16 |\u001b[39m\n \u001b[90m 17 |\u001b[39m   \u001b[36masync\u001b[39m fillPassword(password\u001b[33m:\u001b[39m string) {\u001b[0m"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-06-04T00:51:55.754Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\test-results\\login--P0-Login-should-show-error-for-invalid-credentials-firefox\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\test-results\\login--P0-Login-should-show-error-for-invalid-credentials-firefox\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\test-results\\login--P0-Login-should-show-error-for-invalid-credentials-firefox\\error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "41d3fd2474a19feb00a1-8413ec094c8a8c7e3f0a",
+              "file": "login.spec.ts",
+              "line": 20,
+              "column": 7
+            },
+            {
+              "title": "should login successfully with valid credentials",
+              "ok": false,
+              "tags": [
+                "P0"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 3,
+                      "status": "timedOut",
+                      "duration": 66586,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\pages\\LoginPage.ts",
+                            "column": 32,
+                            "line": 14
+                          },
+                          "message": "Error: locator.fill: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#user-name')\u001b[22m\n\n\n   at ..\\pages\\LoginPage.ts:14\n\n  12 |   // Basic UI actions\n  13 |   async fillUsername(username: string) {\n> 14 |     await this.usernameInput().fill(username);\n     |                                ^\n  15 |   }\n  16 |\n  17 |   async fillPassword(password: string) {\n    at LoginPage.fillUsername (C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\pages\\LoginPage.ts:14:32)\n    at LoginModule.doLogin (C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\modules\\LoginModule.ts:16:26)\n    at C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\tests\\login.spec.ts:12:25\n    at C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\tests\\login.spec.ts:11:5"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "[INFO] 2026-06-04T00:53:05.868Z - Attempting login for user: standard_user\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Perform Login",
+                          "duration": 64397,
+                          "error": {
+                            "message": "Error: locator.fill: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#user-name')\u001b[22m\n",
+                            "stack": "Error: locator.fill: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#user-name')\u001b[22m\n\n    at LoginPage.fillUsername (C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\pages\\LoginPage.ts:14:32)\n    at LoginModule.doLogin (C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\modules\\LoginModule.ts:16:26)\n    at C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\tests\\login.spec.ts:12:25\n    at C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\tests\\login.spec.ts:11:5",
+                            "location": {
+                              "file": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\pages\\LoginPage.ts",
+                              "column": 32,
+                              "line": 14
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\pages\\LoginPage.ts:14\n\n\u001b[0m \u001b[90m 12 |\u001b[39m   \u001b[90m// Basic UI actions\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[36masync\u001b[39m fillUsername(username\u001b[33m:\u001b[39m string) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 14 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39musernameInput()\u001b[33m.\u001b[39mfill(username)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 15 |\u001b[39m   }\n \u001b[90m 16 |\u001b[39m\n \u001b[90m 17 |\u001b[39m   \u001b[36masync\u001b[39m fillPassword(password\u001b[33m:\u001b[39m string) {\u001b[0m"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-06-04T00:53:01.842Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\test-results\\login--P0-Login-should-log-0d116-ully-with-valid-credentials-webkit\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\test-results\\login--P0-Login-should-log-0d116-ully-with-valid-credentials-webkit\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\test-results\\login--P0-Login-should-log-0d116-ully-with-valid-credentials-webkit\\error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "41d3fd2474a19feb00a1-8f8d7b4103b189903966",
+              "file": "login.spec.ts",
+              "line": 10,
+              "column": 7
+            },
+            {
+              "title": "should show error for invalid credentials",
+              "ok": false,
+              "tags": [
+                "P0"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 2,
+                      "status": "timedOut",
+                      "duration": 66048,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\pages\\LoginPage.ts",
+                            "column": 32,
+                            "line": 14
+                          },
+                          "message": "Error: locator.fill: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#user-name')\u001b[22m\n\n\n   at ..\\pages\\LoginPage.ts:14\n\n  12 |   // Basic UI actions\n  13 |   async fillUsername(username: string) {\n> 14 |     await this.usernameInput().fill(username);\n     |                                ^\n  15 |   }\n  16 |\n  17 |   async fillPassword(password: string) {\n    at LoginPage.fillUsername (C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\pages\\LoginPage.ts:14:32)\n    at LoginModule.doLogin (C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\modules\\LoginModule.ts:16:26)\n    at C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\tests\\login.spec.ts:22:25\n    at C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\tests\\login.spec.ts:21:5"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "[INFO] 2026-06-04T00:53:06.406Z - Attempting login for user: invalid_user\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Attempt login with wrong credentials",
+                          "duration": 65114,
+                          "error": {
+                            "message": "Error: locator.fill: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#user-name')\u001b[22m\n",
+                            "stack": "Error: locator.fill: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#user-name')\u001b[22m\n\n    at LoginPage.fillUsername (C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\pages\\LoginPage.ts:14:32)\n    at LoginModule.doLogin (C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\modules\\LoginModule.ts:16:26)\n    at C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\tests\\login.spec.ts:22:25\n    at C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\tests\\login.spec.ts:21:5",
+                            "location": {
+                              "file": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\pages\\LoginPage.ts",
+                              "column": 32,
+                              "line": 14
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\pages\\LoginPage.ts:14\n\n\u001b[0m \u001b[90m 12 |\u001b[39m   \u001b[90m// Basic UI actions\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[36masync\u001b[39m fillUsername(username\u001b[33m:\u001b[39m string) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 14 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39musernameInput()\u001b[33m.\u001b[39mfill(username)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 15 |\u001b[39m   }\n \u001b[90m 16 |\u001b[39m\n \u001b[90m 17 |\u001b[39m   \u001b[36masync\u001b[39m fillPassword(password\u001b[33m:\u001b[39m string) {\u001b[0m"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-06-04T00:53:05.107Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\test-results\\login--P0-Login-should-show-error-for-invalid-credentials-webkit\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\test-results\\login--P0-Login-should-show-error-for-invalid-credentials-webkit\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\test-results\\login--P0-Login-should-show-error-for-invalid-credentials-webkit\\error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "41d3fd2474a19feb00a1-12360050c7068874d8b9",
+              "file": "login.spec.ts",
+              "line": 20,
+              "column": 7
+            },
+            {
+              "title": "should login successfully with valid credentials",
+              "ok": false,
+              "tags": [
+                "P0"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-chrome",
+                  "projectName": "mobile-chrome",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 1,
+                      "status": "timedOut",
+                      "duration": 68841,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\pages\\LoginPage.ts",
+                            "column": 32,
+                            "line": 14
+                          },
+                          "message": "Error: locator.fill: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#user-name')\u001b[22m\n\n\n   at ..\\pages\\LoginPage.ts:14\n\n  12 |   // Basic UI actions\n  13 |   async fillUsername(username: string) {\n> 14 |     await this.usernameInput().fill(username);\n     |                                ^\n  15 |   }\n  16 |\n  17 |   async fillPassword(password: string) {\n    at LoginPage.fillUsername (C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\pages\\LoginPage.ts:14:32)\n    at LoginModule.doLogin (C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\modules\\LoginModule.ts:16:26)\n    at C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\tests\\login.spec.ts:12:25\n    at C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\tests\\login.spec.ts:11:5"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "[INFO] 2026-06-04T00:53:13.068Z - Attempting login for user: standard_user\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Perform Login",
+                          "duration": 68306,
+                          "error": {
+                            "message": "Error: locator.fill: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#user-name')\u001b[22m\n",
+                            "stack": "Error: locator.fill: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#user-name')\u001b[22m\n\n    at LoginPage.fillUsername (C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\pages\\LoginPage.ts:14:32)\n    at LoginModule.doLogin (C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\modules\\LoginModule.ts:16:26)\n    at C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\tests\\login.spec.ts:12:25\n    at C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\tests\\login.spec.ts:11:5",
+                            "location": {
+                              "file": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\pages\\LoginPage.ts",
+                              "column": 32,
+                              "line": 14
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\pages\\LoginPage.ts:14\n\n\u001b[0m \u001b[90m 12 |\u001b[39m   \u001b[90m// Basic UI actions\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[36masync\u001b[39m fillUsername(username\u001b[33m:\u001b[39m string) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 14 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39musernameInput()\u001b[33m.\u001b[39mfill(username)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 15 |\u001b[39m   }\n \u001b[90m 16 |\u001b[39m\n \u001b[90m 17 |\u001b[39m   \u001b[36masync\u001b[39m fillPassword(password\u001b[33m:\u001b[39m string) {\u001b[0m"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-06-04T00:53:12.221Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\test-results\\login--P0-Login-should-log-0d116-ully-with-valid-credentials-mobile-chrome\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\test-results\\login--P0-Login-should-log-0d116-ully-with-valid-credentials-mobile-chrome\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\test-results\\login--P0-Login-should-log-0d116-ully-with-valid-credentials-mobile-chrome\\error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "41d3fd2474a19feb00a1-de8f21a3629cdc1fe4b4",
+              "file": "login.spec.ts",
+              "line": 10,
+              "column": 7
+            },
+            {
+              "title": "should show error for invalid credentials",
+              "ok": false,
+              "tags": [
+                "P0"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-chrome",
+                  "projectName": "mobile-chrome",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 69031,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\pages\\LoginPage.ts",
+                            "column": 32,
+                            "line": 14
+                          },
+                          "message": "Error: locator.fill: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#user-name')\u001b[22m\n\n\n   at ..\\pages\\LoginPage.ts:14\n\n  12 |   // Basic UI actions\n  13 |   async fillUsername(username: string) {\n> 14 |     await this.usernameInput().fill(username);\n     |                                ^\n  15 |   }\n  16 |\n  17 |   async fillPassword(password: string) {\n    at LoginPage.fillUsername (C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\pages\\LoginPage.ts:14:32)\n    at LoginModule.doLogin (C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\modules\\LoginModule.ts:16:26)\n    at C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\tests\\login.spec.ts:22:25\n    at C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\tests\\login.spec.ts:21:5"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "[INFO] 2026-06-04T00:53:13.633Z - Attempting login for user: invalid_user\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Attempt login with wrong credentials",
+                          "duration": 68561,
+                          "error": {
+                            "message": "Error: locator.fill: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#user-name')\u001b[22m\n",
+                            "stack": "Error: locator.fill: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#user-name')\u001b[22m\n\n    at LoginPage.fillUsername (C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\pages\\LoginPage.ts:14:32)\n    at LoginModule.doLogin (C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\modules\\LoginModule.ts:16:26)\n    at C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\tests\\login.spec.ts:22:25\n    at C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\tests\\login.spec.ts:21:5",
+                            "location": {
+                              "file": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\src\\pages\\LoginPage.ts",
+                              "column": 32,
+                              "line": 14
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\pages\\LoginPage.ts:14\n\n\u001b[0m \u001b[90m 12 |\u001b[39m   \u001b[90m// Basic UI actions\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[36masync\u001b[39m fillUsername(username\u001b[33m:\u001b[39m string) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 14 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39musernameInput()\u001b[33m.\u001b[39mfill(username)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 15 |\u001b[39m   }\n \u001b[90m 16 |\u001b[39m\n \u001b[90m 17 |\u001b[39m   \u001b[36masync\u001b[39m fillPassword(password\u001b[33m:\u001b[39m string) {\u001b[0m"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-06-04T00:53:12.812Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\test-results\\login--P0-Login-should-show-error-for-invalid-credentials-mobile-chrome\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\test-results\\login--P0-Login-should-show-error-for-invalid-credentials-mobile-chrome\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Personal_Development\\TheTestingAcademy\\ClaudeCodeMasterClass\\AdvancePlaywrightFramework\\test-results\\login--P0-Login-should-show-error-for-invalid-credentials-mobile-chrome\\error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "41d3fd2474a19feb00a1-57715932c7e35b3caee0",
+              "file": "login.spec.ts",
+              "line": 20,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-06-04T00:51:54.708Z",
+    "duration": 147653.27,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 8,
+    "flaky": 0
+  }
+}

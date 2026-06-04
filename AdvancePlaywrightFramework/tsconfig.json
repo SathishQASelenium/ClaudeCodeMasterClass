@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "@pages": ["src/pages/*"],
+      "@modules": ["src/modules/*"],
+      "@fixtures": ["src/fixtures/index"],
+      "@utils": ["src/utils/*"],
+      "@config": ["src/config/index"]
+    }
+  },
+  "include": ["src/**/*"]
+}
